@@ -29,7 +29,7 @@ import gc
 def timeout_reset(timer):
     import machine
     machine.reset()
-    
+
 # def save_price_csv(filename, timestamp, price):
 #     if utils.exists(filename):
 #         with open(filename, 'a') as f:
@@ -47,7 +47,7 @@ def main():
     lcd.setBrightness(800)
     lcd.setTextColor(lcd.WHITE, lcd.BLACK)
     lcd.font('SFArch_48.fon')
-    lcd.print('BTC Price', lcd.CENTER, 30, lcd.ORANGE)
+    lcd.print('BTC Price', lcd.CENTER, 25, lcd.ORANGE)
     prev_price = ''
     timereset = time.ticks_ms() + (60*1000)
     while True:
@@ -80,9 +80,9 @@ def main():
                 # Last Price
                 price = btc_data['current_price']
                 if not price == prev_price:
-                    lcd.rect(0, 105, 320, 48, lcd.BLACK, lcd.BLACK)
+                    lcd.rect(0, 100, 320, 48, lcd.BLACK, lcd.BLACK)
                     lcd.font('SFArch_48.fon')
-                    lcd.print('$ '+price, lcd.CENTER, 105, color=lcd.WHITE)
+                    lcd.print('$ '+price, lcd.CENTER, 100, color=lcd.WHITE)
 
                 # Symbol
                 _offset = 175
